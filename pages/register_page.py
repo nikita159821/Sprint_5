@@ -3,12 +3,12 @@ from pages.base_page import BasePage
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-
 name_selector = (By.XPATH, "//form[@class='Auth_form__3qKeq mb-20']/fieldset[1]/div/div/input")
 email_selector = (By.XPATH, "//form[@class='Auth_form__3qKeq mb-20']/fieldset[2]/div/div/input")
 password_selector = (By.XPATH, "//form[@class='Auth_form__3qKeq mb-20']/fieldset[3]/div/div/input")
 button_selector = (By.XPATH, "//form[@class='Auth_form__3qKeq mb-20']/button")
 title_auth = (By.XPATH, "//h2")
+password_selector_error = (By.XPATH, "//p[@class='input__error text_type_main-default']")
 
 
 class RegisterPage(BasePage):
@@ -53,3 +53,18 @@ class RegisterPage(BasePage):
         self.name_register().send_keys('тестыы')
         self.email_register().send_keys('teststst21231@yandex.ru')
         self.password_register().send_keys('fsafsafsafsafsa21421')
+
+    # Метод вписывает данные в форму c некорректным паролем, используя локаторы полученные в других методах
+    def send_keys_register_error_button(self):
+        self.name_register().send_keys('тестыы')
+        self.email_register().send_keys('teststst21231@yandex.ru')
+        self.password_register().send_keys('12')
+
+    # Метод возвращает локатор ошибки при вводе пароля
+    def password_error(self):
+        return self.find_element(*password_selector_error)
+
+    # Метод обращается за локатором и получает текст ошибки
+    def password_error_text(self):
+        error_element = self.password_error()
+        return error_element.text
