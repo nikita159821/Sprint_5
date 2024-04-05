@@ -36,6 +36,10 @@ class RegisterPage(BasePage):
     def button(self):
         return self.find_element(*button_selector)
 
+    # Метод нажимает кнопку "Регистрация" через локатора который вернул прошлый метод
+    def click_register_button(self):
+        self.button().click()
+
     # Метод возвращает локатор тайтла "Вход", чтобы определить, что регистрация прошла
     def title_authorization(self):
         return self.find_element(*title_auth)
@@ -46,10 +50,6 @@ class RegisterPage(BasePage):
 
     # Метод вписывает данные в форму, используя локаторы полученные в других методах
     def send_keys_register_button(self):
-        self.name_register().send_keys('тестыыыы')
-        self.email_register().send_keys('teststst2134231@yandex.ru')
+        self.name_register().send_keys('тестыы')
+        self.email_register().send_keys('teststst21231@yandex.ru')
         self.password_register().send_keys('fsafsafsafsafsa21421')
-
-    # Метод нажимает кнопку "Регистрация" через локатора который вернул прошлый метод
-    def click_register_button(self):
-        self.button().click()
