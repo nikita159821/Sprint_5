@@ -9,6 +9,7 @@ button_lk_selector = (By.XPATH, "//a[contains(p/text(),'Личный Кабин�
 button_register_selector = (By.XPATH, "//a[contains(text(),'Войти')]")
 button_forgot_password_selector = (By.XPATH, "//a[contains(text(),'Войти')]")
 
+
 class LoginPage(BasePage):
     def __init__(self, browser):
         super().__init__(browser)
