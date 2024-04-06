@@ -50,9 +50,9 @@ class RegisterPage(BasePage):
 
     # Метод вписывает данные в форму, используя локаторы полученные в других методах
     def send_keys_register_button(self):
-        self.name_register().send_keys('тестыы')
-        self.email_register().send_keys('teststst21231@yandex.ru')
-        self.password_register().send_keys('fsafsafsafsafsa21421')
+        self.name_register().send_keys('Никита')
+        self.email_register().send_keys('nikita_merkulov7@yandex.ru')
+        self.password_register().send_keys('test123456')
 
     # Метод вписывает данные в форму c некорректным паролем, используя локаторы полученные в других методах
     def send_keys_register_error_button(self):
