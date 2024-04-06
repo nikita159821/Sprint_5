@@ -7,7 +7,7 @@ password_selector = (By.XPATH, '//input[@name="Пароль"]')
 button_selector = (By.XPATH, "//form[@class='Auth_form__3qKeq mb-20']/button")
 button_lk_selector = (By.XPATH, "//a[contains(p/text(),'Личный Кабинет')]")
 button_register_selector = (By.XPATH, "//a[contains(text(),'Войти')]")
-
+button_forgot_password_selector = (By.XPATH, "//a[contains(text(),'Войти')]")
 
 class LoginPage(BasePage):
     def __init__(self, browser):
@@ -19,6 +19,9 @@ class LoginPage(BasePage):
 
     def open_register(self):
         self.browser.get('https://stellarburgers.nomoreparties.site/register')
+
+    def open_forgot_password(self):
+        self.browser.get('https://stellarburgers.nomoreparties.site/forgot-password')
 
     # Метод возвращает локатор кнопки "Войти в аккаунт"
     def button_login(self):
@@ -44,6 +47,10 @@ class LoginPage(BasePage):
     def button_register(self):
         return self.find_element(*button_register_selector)
 
+    # Метод возвращает локатор кнопки "Войти" на странице восстановления пароля
+    def button_forgot_password_(self):
+        return self.find_element(*button_forgot_password_selector)
+
     # Метод вписывает данные в форму, используя локаторы полученные в других методах
     def send_keys_authorization(self):
         self.authorization_email().send_keys('nikita_merkulov7@yandex.ru')
@@ -64,3 +71,7 @@ class LoginPage(BasePage):
     # Метод нажимает кнопку "Войти" на странице регистрации
     def button_register_click(self):
         self.button_register().click()
+
+    # Метод нажимает кнопку "Войти" на странице восстановления пароля
+    def button_forgot_password_click(self):
+        self.button_forgot_password_().click()

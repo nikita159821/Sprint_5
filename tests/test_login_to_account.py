@@ -45,7 +45,23 @@ def test_login_to_account_registration_form(browser):
 
     # Нажимаем кнопку "Войти"
     login_page.button_register_click()
-    time.sleep(15)
+
+    # Вводим логин и пароль
+    login_page.send_keys_authorization()
+    # Нажимаем кнопку "Войти"
+    login_page.button_click()
+    time.sleep(1)
+    assert browser.current_url == "https://stellarburgers.nomoreparties.site/"
+
+
+def test_login_to_account_password_recovery_form(browser):
+    # создал объект класса
+    login_page = LoginPage(browser)
+    # Открываем страницу
+    login_page.open_forgot_password()
+
+    # Нажимаем кнопку "Войти"
+    login_page.button_forgot_password_click()
 
     # Вводим логин и пароль
     login_page.send_keys_authorization()
