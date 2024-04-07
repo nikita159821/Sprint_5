@@ -12,6 +12,9 @@ class ConstructorPage(BasePage):
     def open_logo_stellar_burgers(self):
         self.browser.get('https://stellarburgers.nomoreparties.site/login')
 
+    def open_constructor(self):
+        self.browser.get('https://stellarburgers.nomoreparties.site/login')
+
     # Метод возвращает локатор логотипа "stellar_burgers"
     def button_constructor_logo(self):
         return self.find_element(*logo_constructor_selector)

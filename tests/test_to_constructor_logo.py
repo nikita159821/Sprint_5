@@ -10,6 +10,6 @@ def test_to_constructor_logo(browser):
 
     # Yажимаем кнопку "Личный Кабинет"
     login_page.button_constructor_click()
-    time.sleep(15)
+    time.sleep(1)
 
     assert browser.current_url == "https://stellarburgers.nomoreparties.site/"
