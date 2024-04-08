@@ -11,7 +11,6 @@ constructor_burger_selector_5 = (By.XPATH, "//section[@class='BurgerIngredients_
 constructor_burger_selector_6 = (By.XPATH, "//section[@class='BurgerIngredients_ingredients__1N8v2']/div/div[1]/span")
 
 
-
 class ConstructorPage(BasePage):
     def __init__(self, browser):
         super().__init__(browser)

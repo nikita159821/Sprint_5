@@ -8,8 +8,8 @@ def test_login_to_personal_account_button(browser):
     # Открываем страницу
     login_page.open()
 
-    # Yажимаем кнопку "Личный Кабинет"
+    # Нажимаем кнопку "Личный Кабинет"
     login_page.button_lk_click()
-    time.sleep(1)
+    time.sleep(2)
 
-    assert browser.current_url == "https://stellarburgers.nomoreparties.site/"
+    assert browser.current_url == "https://stellarburgers.nomoreparties.site/login"
