@@ -3,12 +3,9 @@ from pages.base_page import BasePage
 
 button_constructor_selector = (By.XPATH, "//p[contains(text(),'Конструктор')]")
 logo_constructor_selector = (By.XPATH, "//a[@href='/']")
-constructor_burger_selector_1 = (By.XPATH, "//section[@class='BurgerIngredients_ingredients__1N8v2']/div/div[2]")
-constructor_burger_selector_2 = (By.XPATH, "//section[@class='BurgerIngredients_ingredients__1N8v2']/div/div[1]")
-constructor_burger_selector_3 = (By.XPATH, "//section[@class='BurgerIngredients_ingredients__1N8v2']/div/div[3]")
-constructor_burger_selector_4 = (By.XPATH, "//section[@class='BurgerIngredients_ingredients__1N8v2']/div/div[2]/span")
-constructor_burger_selector_5 = (By.XPATH, "//section[@class='BurgerIngredients_ingredients__1N8v2']/div/div[3]/span")
-constructor_burger_selector_6 = (By.XPATH, "//section[@class='BurgerIngredients_ingredients__1N8v2']/div/div[1]/span")
+constructor_burger_selector_1 = (By.XPATH, "//span[text()='Булки']")
+constructor_burger_selector_2 = (By.XPATH, "//span[text()='Соусы']")
+constructor_burger_selector_3 = (By.XPATH, "//span[text()='Начинки']")
 
 
 class ConstructorPage(BasePage):
@@ -30,11 +27,11 @@ class ConstructorPage(BasePage):
 
     # Метод возвращает локатор "Булки"
     def construct_burger_buns(self):
-        return self.find_element(*constructor_burger_selector_2)
+        return self.find_element(*constructor_burger_selector_1)
 
     # Метод возвращает локатор "Соусы"
     def constructor_burgers(self):
-        return self.find_element(*constructor_burger_selector_1)
+        return self.find_element(*constructor_burger_selector_2)
 
     # Метод возвращает локатор "Начинки"
     def constructor_burgers_fillings(self):
@@ -54,17 +51,17 @@ class ConstructorPage(BasePage):
 
     # Метод возвращает локатор текста "Булки"
     def get_text_buns(self):
-        element = self.find_element(*constructor_burger_selector_6)
+        element = self.find_element(*constructor_burger_selector_1)
         return element.text  # Возвращаем текст элемента
 
     # Метод возвращает локатор текста "Соусы"
     def get_text_sauces(self):
-        element = self.find_element(*constructor_burger_selector_4)
+        element = self.find_element(*constructor_burger_selector_2)
         return element.text  # Возвращаем текст элемента
 
     # Метод возвращает локатор текста "Начинки"
     def get_text_fillings(self):
-        element = self.find_element(*constructor_burger_selector_5)
+        element = self.find_element(*constructor_burger_selector_3)
         return element.text  # Возвращаем текст элемента
 
     # Метод нажимает кнопку "Конструктор"
