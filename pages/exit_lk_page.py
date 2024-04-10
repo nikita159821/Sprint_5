@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
+from tests.data import LOGIN, PASSWORD
 from tests.urls import URL_LOGIN
 
 email_selector = (By.XPATH, '//input[@name="name"]')
@@ -39,8 +40,8 @@ class ExitLkPage(BasePage):
 
     # Метод вписывает данные в форму, используя локаторы полученные в других методах
     def send_keys_authorization(self):
-        self.authorization_email().send_keys('nikita_merkulov7@yandex.ru')
-        self.authorization_password().send_keys('test123456')
+        self.authorization_email().send_keys(LOGIN)
+        self.authorization_password().send_keys(PASSWORD)
 
     # Метод нажимает кнопку "Войти в аккаунт"
     def button_login_click(self):

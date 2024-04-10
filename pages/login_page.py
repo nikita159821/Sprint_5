@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
+from tests.data import LOGIN, PASSWORD
 from tests.urls import URL_SITE, URL_REGISTER, FORGOT_PASSWORD
 
 button_login_selector = (By.XPATH, "//button[text()='Войти в аккаунт']")
@@ -55,8 +56,8 @@ class LoginPage(BasePage):
 
     # Метод вписывает данные в форму, используя локаторы полученные в других методах
     def send_keys_authorization(self):
-        self.authorization_email().send_keys('nikita_merkulov7@yandex.ru')
-        self.authorization_password().send_keys('test123456')
+        self.authorization_email().send_keys(LOGIN)
+        self.authorization_password().send_keys(PASSWORD)
 
     # Метод нажимает кнопку "Войти в аккаунт"
     def button_login_click(self):
