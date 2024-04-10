@@ -19,8 +19,10 @@ def test_login_to_account_main_button(browser):
     # Нажимаем кнопку "Войти"
     login_page.button_click()
 
+    # Явное ожидание загрузки страницы
     wait = WebDriverWait(browser, 10)
     wait.until(EC.url_to_be(URL_SITE))
+
     assert browser.current_url == URL_SITE
 
 
@@ -38,8 +40,10 @@ def test_login_to_account_personal_cabinet(browser):
     # Нажимаем кнопку "Войти"
     login_page.button_click()
 
+    # Явное ожидание загрузки страницы
     wait = WebDriverWait(browser, 10)
     wait.until(EC.url_to_be(URL_SITE))
+
     assert browser.current_url == URL_SITE
 
 
@@ -57,8 +61,10 @@ def test_login_to_account_registration_form(browser):
     # Нажимаем кнопку "Войти"
     login_page.button_click()
 
+    # Явное ожидание загрузки страницы
     wait = WebDriverWait(browser, 10)
     wait.until(EC.url_to_be(URL_SITE))
+
     assert browser.current_url == URL_SITE
 
 
@@ -76,6 +82,8 @@ def test_login_to_account_password_recovery_form(browser):
     # Нажимаем кнопку "Войти"
     login_page.button_click()
 
+    # Явное ожидание загрузки страницы
     wait = WebDriverWait(browser, 10)
     wait.until(EC.url_to_be(URL_SITE))
+
     assert browser.current_url == URL_SITE

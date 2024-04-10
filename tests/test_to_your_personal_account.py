@@ -1,5 +1,8 @@
-import time
 from pages.lk_page import LkPage
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+from tests.urls import URL_LOGIN
 
 
 def test_login_to_personal_account_button(browser):
@@ -10,6 +13,9 @@ def test_login_to_personal_account_button(browser):
 
     # Нажимаем кнопку "Личный Кабинет"
     login_page.button_lk_click()
-    time.sleep(2)
 
-    assert browser.current_url == "https://stellarburgers.nomoreparties.site/login"
+    # Явное ожидание загрузки страницы
+    wait = WebDriverWait(browser, 10)
+    wait.until(EC.url_to_be(URL_LOGIN))
+
+    assert browser.current_url == URL_LOGIN

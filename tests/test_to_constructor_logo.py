@@ -1,5 +1,9 @@
 import time
 from pages.constructor_page import ConstructorPage
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+from tests.urls import URL_SITE
 
 
 def test_to_constructor_logo(browser):
@@ -8,8 +12,11 @@ def test_to_constructor_logo(browser):
     # Открываем страницу
     login_page.open()
 
-    # Yажимаем кнопку "Личный Кабинет"
+    #  Нажимаем кнопку "Личный Кабинет"
     login_page.button_constructor_click()
-    time.sleep(1)
 
-    assert browser.current_url == "https://stellarburgers.nomoreparties.site/"
+    # Явное ожидание загрузки страницы
+    wait = WebDriverWait(browser, 10)
+    wait.until(EC.url_to_be(URL_SITE))
+
+    assert browser.current_url == URL_SITE

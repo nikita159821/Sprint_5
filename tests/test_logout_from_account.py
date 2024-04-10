@@ -1,6 +1,7 @@
-import time
-
 from pages.exit_lk_page import ExitLkPage
+from tests.urls import URL_LOGIN
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 def test_logout_button_in_personal_account(browser):
@@ -16,6 +17,10 @@ def test_logout_button_in_personal_account(browser):
     # Заходим в лк и выходим через кнопку "Выход"
     exit_page.button_lk_click()
     exit_page.logout_click()
-    time.sleep(2)
 
-    assert browser.current_url == "https://stellarburgers.nomoreparties.site/login"
+    # Явное ожидание загрузки страницы
+    wait = WebDriverWait(browser, 10)
+    wait.until(EC.url_to_be(URL_LOGIN))
+
+    assert browser.current_url == URL_LOGIN
+
