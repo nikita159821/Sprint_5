@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
-button_login_selector = (By.XPATH, '//section[@class="BurgerConstructor_basket__29Cd7 mt-25 "]/div/button')
+button_login_selector = (By.XPATH, "//button[text()='Войти в аккаунт']")
 email_selector = (By.XPATH, '//input[@name="name"]')
 password_selector = (By.XPATH, '//input[@name="Пароль"]')
 button_selector = (By.XPATH, "//form[@class='Auth_form__3qKeq mb-20']/button")

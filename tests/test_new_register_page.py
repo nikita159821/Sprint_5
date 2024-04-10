@@ -1,3 +1,5 @@
+import time
+
 from pages.register_page import RegisterPage
 
 
@@ -9,6 +11,7 @@ def test_register_page(browser):
 
     # Вводим все данные
     register_page.send_keys_register_button()
+    time.sleep(15)
     # Нажимаем на кнопку "Регистрация"
     register_page.click_register_button()
 

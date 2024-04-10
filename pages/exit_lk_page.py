@@ -5,7 +5,7 @@ email_selector = (By.XPATH, '//input[@name="name"]')
 password_selector = (By.XPATH, '//input[@name="Пароль"]')
 button_selector = (By.XPATH, "//form[@class='Auth_form__3qKeq mb-20']/button")
 button_lk_selector = (By.XPATH, "//a[contains(p/text(),'Личный Кабинет')]")
-logaut_selector = (By.XPATH, "//nav[@class='Account_nav__Lgali']/ul/li[3]/button")
+logaut_selector = (By.XPATH, "//button[text()='Выход']")
 
 
 class ExitLkPage(BasePage):

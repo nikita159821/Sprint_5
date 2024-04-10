@@ -3,9 +3,9 @@ from pages.base_page import BasePage
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-name_selector = (By.XPATH, "//form[@class='Auth_form__3qKeq mb-20']/fieldset[1]/div/div/input")
-email_selector = (By.XPATH, "//form[@class='Auth_form__3qKeq mb-20']/fieldset[2]/div/div/input")
-password_selector = (By.XPATH, "//form[@class='Auth_form__3qKeq mb-20']/fieldset[3]/div/div/input")
+name_selector = (By.XPATH, "//label[text() = 'Имя']/following-sibling::input")
+email_selector = (By.XPATH, "//label[text() = 'Email']/following-sibling::input")
+password_selector = (By.XPATH, "//label[text() = 'Пароль']/following-sibling::input")
 button_selector = (By.XPATH, "//form[@class='Auth_form__3qKeq mb-20']/button")
 title_auth = (By.XPATH, "//h2")
 password_selector_error = (By.XPATH, "//p[@class='input__error text_type_main-default']")
