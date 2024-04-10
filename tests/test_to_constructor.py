@@ -29,7 +29,11 @@ class TestBurgerPersonalAcount:
         # Нажимаем "Соусы"
         constructor.button_constructor_burgers()
 
-        assert constructor.get_text_sauces() == 'Соусы'
+        # Получаем новый класс элемента "Соусы"
+        new_class = constructor.sauces().get_attribute("class")
+
+        # Сравниваем полученный элемент с ожидаемым
+        assert 'tab_tab_type_current__2BEPc' in new_class
 
     def test_navigation_to_fillings_section(self, browser):
         # создал объект класса
@@ -40,7 +44,11 @@ class TestBurgerPersonalAcount:
         # Нажимаем "Начинки"
         constructor.button_constructor_burgers_fillings()
 
-        assert constructor.get_text_fillings() == 'Начинки'
+        # Получаем новый класс элемента "Начинки"
+        new_class = constructor.fillings().get_attribute("class")
+
+        # Сравниваем полученный элемент с ожидаемым
+        assert 'tab_tab_type_current__2BEPc' in new_class
 
     def test_navigation_to_buns_section(self, browser):
         # создал объект класса
@@ -54,4 +62,8 @@ class TestBurgerPersonalAcount:
         # Нажимаем на "Булки"
         constructor.button_constructor_burgers_buns()
 
-        assert constructor.get_text_buns() == 'Булки'
+        # Получаем новый класс элемента "Булки"
+        new_class = constructor.buns().get_attribute("class")
+
+        # Сравниваем полученный элемент с ожидаемым
+        assert 'tab_tab_type_current__2BEPc' in new_class

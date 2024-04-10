@@ -8,6 +8,10 @@ constructor_burger_selector_1 = (By.XPATH, "//span[text()='Булки']")
 constructor_burger_selector_2 = (By.XPATH, "//span[text()='Соусы']")
 constructor_burger_selector_3 = (By.XPATH, "//span[text()='Начинки']")
 
+buns = (By.XPATH, "//div[contains(@class,'tab_tab_type_current__2BEPc')]")
+sauces = (By.XPATH, "//div[contains(@class,'tab_tab_type_current__2BEPc')]")
+fillings = (By.XPATH, "//div[contains(@class,'tab_tab_type_current__2BEPc')]")
+
 
 class ConstructorPage(BasePage):
     def __init__(self, browser):
@@ -27,13 +31,25 @@ class ConstructorPage(BasePage):
     def construct_burger_buns(self):
         return self.find_element(*constructor_burger_selector_1)
 
+    # Метод возвращает новый локатор "Булки"
+    def buns(self):
+        return self.find_element(*buns)
+
     # Метод возвращает локатор "Соусы"
     def constructor_burgers(self):
         return self.find_element(*constructor_burger_selector_2)
 
+    # Метод возвращает новый локатор "Соусы"
+    def sauces(self):
+        return self.find_element(*sauces)
+
     # Метод возвращает локатор "Начинки"
     def constructor_burgers_fillings(self):
         return self.find_element(*constructor_burger_selector_3)
+
+    # Метод возвращает новый локатор "Начинки"
+    def fillings(self):
+        return self.find_element(*fillings)
 
     # Метод нажимает кнопку "Булки"
     def button_constructor_burgers_buns(self):
@@ -46,21 +62,6 @@ class ConstructorPage(BasePage):
     # Метод нажимает кнопку "Начинки"
     def button_constructor_burgers_fillings(self):
         self.constructor_burgers_fillings().click()
-
-    # Метод возвращает локатор текста "Булки"
-    def get_text_buns(self):
-        element = self.find_element(*constructor_burger_selector_1)
-        return element.text  # Возвращаем текст элемента
-
-    # Метод возвращает локатор текста "Соусы"
-    def get_text_sauces(self):
-        element = self.find_element(*constructor_burger_selector_2)
-        return element.text  # Возвращаем текст элемента
-
-    # Метод возвращает локатор текста "Начинки"
-    def get_text_fillings(self):
-        element = self.find_element(*constructor_burger_selector_3)
-        return element.text  # Возвращаем текст элемента
 
     # Метод нажимает кнопку "Конструктор"
     def button_constructor_click(self):
