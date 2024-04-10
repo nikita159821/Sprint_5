@@ -5,85 +5,83 @@ from pages.login_page import LoginPage
 from tests.urls import URL_SITE
 
 
-def test_login_to_account_main_button(browser):
-    # создал объект класса
-    login_page = LoginPage(browser)
-    # Открываем страницу
-    login_page.open()
+class TestBurgerLogin:
+    def test_login_to_account_main_button(self, browser):
+        # создал объект класса
+        login_page = LoginPage(browser)
+        # Открываем страницу
+        login_page.open()
 
-    # Нажимаем кнопку "Войти в аккаунт"
-    login_page.button_login_click()
+        # Нажимаем кнопку "Войти в аккаунт"
+        login_page.button_login_click()
 
-    # Вводим логин и пароль
-    login_page.send_keys_authorization()
-    # Нажимаем кнопку "Войти"
-    login_page.button_click()
+        # Вводим логин и пароль
+        login_page.send_keys_authorization()
+        # Нажимаем кнопку "Войти"
+        login_page.button_click()
 
-    # Явное ожидание загрузки страницы
-    wait = WebDriverWait(browser, 10)
-    wait.until(EC.url_to_be(URL_SITE))
+        # Явное ожидание загрузки страницы
+        wait = WebDriverWait(browser, 10)
+        wait.until(EC.url_to_be(URL_SITE))
 
-    assert browser.current_url == URL_SITE
+        assert browser.current_url == URL_SITE
 
+    def test_login_to_account_personal_cabinet(self, browser):
+        # создал объект класса
+        login_page = LoginPage(browser)
+        # Открываем страницу
+        login_page.open()
 
-def test_login_to_account_personal_cabinet(browser):
-    # создал объект класса
-    login_page = LoginPage(browser)
-    # Открываем страницу
-    login_page.open()
+        # Нажимаем "Личный кабинет"
+        login_page.button_lk_click()
 
-    # Нажимаем "Личный кабинет"
-    login_page.button_lk_click()
+        # Вводим логин и пароль
+        login_page.send_keys_authorization()
+        # Нажимаем кнопку "Войти"
+        login_page.button_click()
 
-    # Вводим логин и пароль
-    login_page.send_keys_authorization()
-    # Нажимаем кнопку "Войти"
-    login_page.button_click()
+        # Явное ожидание загрузки страницы
+        wait = WebDriverWait(browser, 10)
+        wait.until(EC.url_to_be(URL_SITE))
 
-    # Явное ожидание загрузки страницы
-    wait = WebDriverWait(browser, 10)
-    wait.until(EC.url_to_be(URL_SITE))
+        assert browser.current_url == URL_SITE
 
-    assert browser.current_url == URL_SITE
+    def test_login_to_account_registration_form(self, browser):
+        # создал объект класса
+        login_page = LoginPage(browser)
+        # Открываем страницу
+        login_page.open_register()
 
+        # Нажимаем кнопку "Войти"
+        login_page.button_register_click()
 
-def test_login_to_account_registration_form(browser):
-    # создал объект класса
-    login_page = LoginPage(browser)
-    # Открываем страницу
-    login_page.open_register()
+        # Вводим логин и пароль
+        login_page.send_keys_authorization()
+        # Нажимаем кнопку "Войти"
+        login_page.button_click()
 
-    # Нажимаем кнопку "Войти"
-    login_page.button_register_click()
+        # Явное ожидание загрузки страницы
+        wait = WebDriverWait(browser, 10)
+        wait.until(EC.url_to_be(URL_SITE))
 
-    # Вводим логин и пароль
-    login_page.send_keys_authorization()
-    # Нажимаем кнопку "Войти"
-    login_page.button_click()
+        assert browser.current_url == URL_SITE
 
-    # Явное ожидание загрузки страницы
-    wait = WebDriverWait(browser, 10)
-    wait.until(EC.url_to_be(URL_SITE))
+    def test_login_to_account_password_recovery_form(self, browser):
+        # создал объект класса
+        login_page = LoginPage(browser)
+        # Открываем страницу
+        login_page.open_forgot_password()
 
-    assert browser.current_url == URL_SITE
+        # Нажимаем кнопку "Войти"
+        login_page.button_forgot_password_click()
 
+        # Вводим логин и пароль
+        login_page.send_keys_authorization()
+        # Нажимаем кнопку "Войти"
+        login_page.button_click()
 
-def test_login_to_account_password_recovery_form(browser):
-    # создал объект класса
-    login_page = LoginPage(browser)
-    # Открываем страницу
-    login_page.open_forgot_password()
+        # Явное ожидание загрузки страницы
+        wait = WebDriverWait(browser, 10)
+        wait.until(EC.url_to_be(URL_SITE))
 
-    # Нажимаем кнопку "Войти"
-    login_page.button_forgot_password_click()
-
-    # Вводим логин и пароль
-    login_page.send_keys_authorization()
-    # Нажимаем кнопку "Войти"
-    login_page.button_click()
-
-    # Явное ожидание загрузки страницы
-    wait = WebDriverWait(browser, 10)
-    wait.until(EC.url_to_be(URL_SITE))
-
-    assert browser.current_url == URL_SITE
+        assert browser.current_url == URL_SITE
