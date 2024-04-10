@@ -1,6 +1,5 @@
 from selenium import webdriver
 import pytest
-
 import sys
 import os
 
