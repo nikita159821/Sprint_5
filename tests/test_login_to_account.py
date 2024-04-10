@@ -1,5 +1,8 @@
-import time
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 from pages.login_page import LoginPage
+from tests.urls import URL_SITE
 
 
 def test_login_to_account_main_button(browser):
@@ -15,8 +18,10 @@ def test_login_to_account_main_button(browser):
     login_page.send_keys_authorization()
     # Нажимаем кнопку "Войти"
     login_page.button_click()
-    time.sleep(1)
-    assert browser.current_url == "https://stellarburgers.nomoreparties.site/"
+
+    wait = WebDriverWait(browser, 10)
+    wait.until(EC.url_to_be(URL_SITE))
+    assert browser.current_url == URL_SITE
 
 
 def test_login_to_account_personal_cabinet(browser):
@@ -32,8 +37,10 @@ def test_login_to_account_personal_cabinet(browser):
     login_page.send_keys_authorization()
     # Нажимаем кнопку "Войти"
     login_page.button_click()
-    time.sleep(1)
-    assert browser.current_url == "https://stellarburgers.nomoreparties.site/"
+
+    wait = WebDriverWait(browser, 10)
+    wait.until(EC.url_to_be(URL_SITE))
+    assert browser.current_url == URL_SITE
 
 
 def test_login_to_account_registration_form(browser):
@@ -49,8 +56,10 @@ def test_login_to_account_registration_form(browser):
     login_page.send_keys_authorization()
     # Нажимаем кнопку "Войти"
     login_page.button_click()
-    time.sleep(1)
-    assert browser.current_url == "https://stellarburgers.nomoreparties.site/"
+
+    wait = WebDriverWait(browser, 10)
+    wait.until(EC.url_to_be(URL_SITE))
+    assert browser.current_url == URL_SITE
 
 
 def test_login_to_account_password_recovery_form(browser):
@@ -66,5 +75,7 @@ def test_login_to_account_password_recovery_form(browser):
     login_page.send_keys_authorization()
     # Нажимаем кнопку "Войти"
     login_page.button_click()
-    time.sleep(1)
-    assert browser.current_url == "https://stellarburgers.nomoreparties.site/"
+
+    wait = WebDriverWait(browser, 10)
+    wait.until(EC.url_to_be(URL_SITE))
+    assert browser.current_url == URL_SITE
