@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class TestBurgerLogout:
-    def test_logout_button_in_personal_account(self,browser):
+    def test_logout_button_in_personal_account(self, browser):
         # создал объект класса
         exit_page = ExitLkPage(browser)
         # Открываем страницу авторизации
@@ -24,4 +24,3 @@ class TestBurgerLogout:
         wait.until(EC.url_to_be(URL_LOGIN))
 
         assert browser.current_url == URL_LOGIN
-
