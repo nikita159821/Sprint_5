@@ -1,8 +1,10 @@
+from random import choice, randint
+from string import ascii_letters
+
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
 from tests.urls import URL_REGISTER
 
 name_selector = (By.XPATH, "//label[text() = 'Имя']/following-sibling::input")
@@ -50,11 +52,20 @@ class RegisterPage(BasePage):
     def time_authorization(self, browser):
         WebDriverWait(browser, 10).until(EC.element_to_be_clickable(self.title_authorization()))
 
+    @staticmethod
+    def correct_user_data_generator():
+        user_data = {'name': str(choice(ascii_letters) * 6),
+                     'email': str(choice(ascii_letters)) * 3 + str(
+                         randint(100, 999)) + '@email.com',
+                     'password': str(randint(100000, 999999))}
+        return user_data
+
     # Метод вписывает данные в форму, используя локаторы полученные в других методах
     def send_keys_register_button(self):
-        self.name_register().send_keys('Никита')
-        self.email_register().send_keys('nikita_merkulov7@yandex.ru')
-        self.password_register().send_keys('test123456')
+        user_data = self.correct_user_data_generator()
+        self.name_register().send_keys(user_data['name'])
+        self.email_register().send_keys(user_data['email'])
+        self.password_register().send_keys(user_data['password'])
 
     # Метод вписывает данные в форму c некорректным паролем, используя локаторы полученные в других методах
     def send_keys_register_error_button(self):
