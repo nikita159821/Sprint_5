@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
+from tests.urls import URL_LOGIN
 
 email_selector = (By.XPATH, '//input[@name="name"]')
 password_selector = (By.XPATH, '//input[@name="Пароль"]')
@@ -14,7 +15,7 @@ class ExitLkPage(BasePage):
 
     # Метод для открытия страницы
     def open(self):
-        self.browser.get('https://stellarburgers.nomoreparties.site/login')
+        self.browser.get(URL_LOGIN)
 
     # Метод возвращает локатор инпута "email"
     def authorization_email(self):

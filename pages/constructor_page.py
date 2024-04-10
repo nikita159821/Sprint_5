@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
+from tests.urls import URL_LOGIN, URL_SITE
 
 button_constructor_selector = (By.XPATH, "//p[contains(text(),'Конструктор')]")
 logo_constructor_selector = (By.XPATH, "//a[@href='/']")
@@ -12,14 +13,11 @@ class ConstructorPage(BasePage):
     def __init__(self, browser):
         super().__init__(browser)
 
-    def open_logo_stellar_burgers(self):
-        self.browser.get('https://stellarburgers.nomoreparties.site/login')
-
-    def open_constructor(self):
-        self.browser.get('https://stellarburgers.nomoreparties.site/login')
+    def open(self):
+        self.browser.get(URL_LOGIN)
 
     def open_burger(self):
-        self.browser.get('https://stellarburgers.nomoreparties.site/')
+        self.browser.get(URL_SITE)
 
     # Метод возвращает локатор логотипа "stellar_burgers"
     def button_constructor_logo(self):

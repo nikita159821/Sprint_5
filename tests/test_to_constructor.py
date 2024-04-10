@@ -6,7 +6,7 @@ def test_personal_account_to_constructor_page(browser):
     # создал объект класса
     constructor = ConstructorPage(browser)
     # Открываем страницу
-    constructor.open_constructor()
+    constructor.open()
 
     # Нажимаем кнопку "Личный Кабинет"
     constructor.button_constructor_click()

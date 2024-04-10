@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
+from tests.urls import URL_SITE, URL_LOGIN
 
 button_lk_selector = (By.XPATH, "//a[contains(p/text(),'Личный Кабинет')]")
 
@@ -10,10 +11,10 @@ class LkPage(BasePage):
 
     # Метод для открытия страницы
     def open(self):
-        self.browser.get('https://stellarburgers.nomoreparties.site/')
+        self.browser.get(URL_SITE)
 
     def open_constructor(self):
-        self.browser.get('https://stellarburgers.nomoreparties.site/login')
+        self.browser.get(URL_LOGIN)
 
     # Метод возвращает локатор кнопки "Личный кабинет"
     def button_lk(self):

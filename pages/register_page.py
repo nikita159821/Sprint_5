@@ -3,6 +3,8 @@ from pages.base_page import BasePage
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from tests.urls import URL_REGISTER
+
 name_selector = (By.XPATH, "//label[text() = 'Имя']/following-sibling::input")
 email_selector = (By.XPATH, "//label[text() = 'Email']/following-sibling::input")
 password_selector = (By.XPATH, "//label[text() = 'Пароль']/following-sibling::input")
@@ -18,7 +20,7 @@ class RegisterPage(BasePage):
 
     # Метод для открытия страницы
     def open(self):
-        self.browser.get('https://stellarburgers.nomoreparties.site/register')
+        self.browser.get(URL_REGISTER)
 
     # Метод возвращает локатор инпута "Имя"
     def name_register(self):

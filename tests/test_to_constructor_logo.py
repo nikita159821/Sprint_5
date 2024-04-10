@@ -6,7 +6,7 @@ def test_to_constructor_logo(browser):
     # создал объект класса
     login_page = ConstructorPage(browser)
     # Открываем страницу
-    login_page.open_logo_stellar_burgers()
+    login_page.open()
 
     # Yажимаем кнопку "Личный Кабинет"
     login_page.button_constructor_click()

@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
+from tests.urls import URL_SITE, URL_REGISTER, FORGOT_PASSWORD
 
 button_login_selector = (By.XPATH, "//button[text()='Войти в аккаунт']")
 email_selector = (By.XPATH, '//input[@name="name"]')
@@ -16,13 +17,13 @@ class LoginPage(BasePage):
 
     # Метод для открытия страницы
     def open(self):
-        self.browser.get('https://stellarburgers.nomoreparties.site/')
+        self.browser.get(URL_SITE)
 
     def open_register(self):
-        self.browser.get('https://stellarburgers.nomoreparties.site/register')
+        self.browser.get(URL_REGISTER)
 
     def open_forgot_password(self):
-        self.browser.get('https://stellarburgers.nomoreparties.site/forgot-password')
+        self.browser.get(FORGOT_PASSWORD)
 
     # Метод возвращает локатор кнопки "Войти в аккаунт"
     def button_login(self):
