@@ -13,6 +13,7 @@ sauces = (By.XPATH, "//div[contains(@class,'tab_tab_type_current__2BEPc')]")
 fillings = (By.XPATH, "//div[contains(@class,'tab_tab_type_current__2BEPc')]")
 
 
+
 class ConstructorPage(BasePage):
     def __init__(self, browser):
         super().__init__(browser)
