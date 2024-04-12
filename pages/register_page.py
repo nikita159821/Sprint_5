@@ -2,6 +2,8 @@ from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
+from tests.data import NAME_REGISTER, LOGIN_REGISTER, PASSWORD_REGISTER
 from tests.urls import URL_REGISTER
 from helpers import Helpers
 
@@ -50,7 +52,7 @@ class RegisterPage(BasePage):
     def time_authorization(self, browser):
         WebDriverWait(browser, 10).until(EC.element_to_be_clickable(self.title_authorization()))
 
-    # Метод вписывает данные в форму, используя локаторы полученные в других методах
+    # Метод вписывает данные в форму регистрации
     def send_keys_register_button(self):
         user_data = Helpers.correct_user_data_generator()
         self.name_register().send_keys(user_data['name'])
@@ -59,9 +61,9 @@ class RegisterPage(BasePage):
 
     # Метод вписывает данные в форму c некорректным паролем, используя локаторы полученные в других методах
     def send_keys_register_error_button(self):
-        self.name_register().send_keys('тестыы')
-        self.email_register().send_keys('teststst21231@yandex.ru')
-        self.password_register().send_keys('12')
+        self.name_register().send_keys(NAME_REGISTER)
+        self.email_register().send_keys(LOGIN_REGISTER)
+        self.password_register().send_keys(PASSWORD_REGISTER)
 
     # Метод возвращает локатор ошибки при вводе пароля
     def password_error(self):
